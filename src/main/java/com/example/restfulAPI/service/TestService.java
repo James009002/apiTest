@@ -1,17 +1,21 @@
 package com.example.restfulAPI.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-import com.example.restfulAPI.service.impl.TestImpl;
+import com.example.restfulAPI.model.Advertises;
+import com.example.restfulAPI.model.Products;
 
 
+
+//@Service
 public interface TestService {
 	
-	
-	public String getUserDetail();
+	public List<Advertises> getAdvertises();
 
-	public String getProductDetail();
+	public List<Products> getProducts();
 	
+	public Advertises getAdvertise(int advertiseId);
+	
+	public Products getProduct(int prodcutId);
 	
 }
