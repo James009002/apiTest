@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.restfulAPI.model.Advertises;
+import com.example.restfulAPI.model.Advertise;
 import com.example.restfulAPI.model.Products;
 import com.example.restfulAPI.repository.AdvertisesDao;
 import com.example.restfulAPI.repository.ProductsDao;
@@ -24,8 +24,8 @@ public class TestImpl implements TestService {
 
 	
 	//getAdvertises
-	public List<Advertises> getAdvertises() {
-		List<Advertises> optionalAdvertises = (List<Advertises>) advertisesDao.findAll();	
+	public List<Advertise> getAdvertises() {
+		List<Advertise> optionalAdvertises = (List<Advertise>) advertisesDao.findAll();	
 		return optionalAdvertises;
 	}
 	
@@ -36,14 +36,14 @@ public class TestImpl implements TestService {
 	}
 
 
-	public Advertises getAdvertise(int advertiseId) {
-		Optional<Advertises> optionalAdvertise = advertisesDao.findById(advertiseId); //hardcode need to fix
+	public Advertise getAdvertise(int advertiseId) {
+		Optional<Advertise> optionalAdvertise = advertisesDao.findById(advertiseId); //hardcode need to fix
 		if(optionalAdvertise == null) {
 			//need to return something if it return null
 		}
-		Advertises advertisesData = optionalAdvertise.get();
-		Advertises advertises = new Advertises();
-		advertises.setId(advertisesData.getId());
+		Advertise advertisesData = optionalAdvertise.get();
+		Advertise advertises = new Advertise();
+		advertises.setAdvertiseid(advertisesData.getAdvertiseid());
 		advertises.setName(advertisesData.getName());
 		return advertises;
 	}
@@ -56,7 +56,7 @@ public class TestImpl implements TestService {
 		}
 		Products productsData = optionalProducts.get();
 		Products products = new Products();
-		products.setId(productsData.getId());
+		products.setProductid(productsData.getProductid());
 		products.setName(productsData.getName());
 		return products;
 	}

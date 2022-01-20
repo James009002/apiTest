@@ -1,7 +1,5 @@
 package com.example.restfulAPI.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,17 +11,18 @@ import lombok.Data;
 
 @Data
 @Entity(name="Advertise")
-public class Advertises {
+public class Advertise {
 	
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int advertiseid;
 	
 	private Long image;
 	
 	private String name;
-
+	
+	
 	
 
 

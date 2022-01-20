@@ -5,25 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Repository;
-
 import lombok.Data;
 
-
-@Entity
 @Data
-public class Products {
-
+@Entity(name="order")
+public class Order {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int productid;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+	private int orderid;
 	
 	private String name;
 	
-	private Long image;
-	
-	private int recommend;
-	
-	
+	private String staus;
 }

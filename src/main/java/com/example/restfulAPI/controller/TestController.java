@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.restfulAPI.model.Advertises;
+import com.example.restfulAPI.model.Advertise;
 import com.example.restfulAPI.model.Products;
 import com.example.restfulAPI.service.TestService;
 
@@ -19,25 +18,25 @@ public class TestController {
 	TestService testService; 
 	
 	//getAdvertises
-	@GetMapping("getAdvertises")
-	public List<Advertises> getAdvertises() {
+	@GetMapping("advertises")
+	public List<Advertise> getAdvertises() {
 		return testService.getAdvertises();
 	}
 	//getProducts
-	@GetMapping("getProducts")
+	@GetMapping("products")
 	public List<Products> getProducts() {
 		return testService.getProducts();
 	}
 	
 	
 	//getAdvertise
-	@GetMapping("getAdvertise/{advertiseId}")
-	public Advertises getAdvertise(@PathVariable int advertiseId) {
+	@GetMapping("advertise/{advertiseId}")
+	public Advertise getAdvertise(@PathVariable int advertiseId) {
 		return testService.getAdvertise(advertiseId);
 	}
 	
 	//getAdvertise
-	@GetMapping("getProduct/{productId}")
+	@GetMapping("product/{productId}")
 	public Products getProduct(@PathVariable int productId) {
 		return testService.getProduct(productId);
 	}
