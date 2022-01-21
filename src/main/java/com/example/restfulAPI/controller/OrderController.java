@@ -2,10 +2,11 @@ package com.example.restfulAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.example.restfulAPI.model.Order;
 import com.example.restfulAPI.service.OrderService;
 
 @RestController
@@ -16,16 +17,16 @@ public class OrderController {
 	@Autowired 
 	OrderService orderService;
 	
-	@GetMapping("/order")
-	public String query() {
+	@GetMapping("/query/{orderid}")
+	public Order query(@PathVariable int orderid) {
+
 		
 		
-		
-		return orderService.query();
+		return orderService.query(orderid);
 	}
 	
 	
-	@RequestMapping("order/{orderid}")
+	@RequestMapping("modify/{orderid}")
 	public String modify(
 //			
 			) {
@@ -34,7 +35,7 @@ public class OrderController {
 	}
 	
 	
-	@RequestMapping("modify/{orderid}")
+	@RequestMapping("cancel/{orderid}")
 	public String cancel(
 //			
 			) {
@@ -44,7 +45,7 @@ public class OrderController {
 		return orderService.cancel();
 	}
 	
-	@RequestMapping("modify/{orderid}")
+	@RequestMapping("place/{orderid}")
 	public String place() {
 
 		

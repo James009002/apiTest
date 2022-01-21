@@ -1,10 +1,11 @@
 package com.example.restfulAPI.service;
 
-import com.example.restfulAPI.model.Member;
+
+import com.example.restfulAPI.model.Order;
 
 public interface OrderService {
 	
-	public String query();
+	public Order query(int orderid);
 
 	public String modify();
 	
