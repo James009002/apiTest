@@ -2,6 +2,7 @@ package com.example.restfulAPI.service.impl;
 
 import java.util.Optional;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -9,8 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.restfulAPI.model.Order;
 import com.example.restfulAPI.repository.OrderDao;
 import com.example.restfulAPI.service.OrderService;
-import com.fasterxml.jackson.databind.node.JsonNodeFactory;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.Gson;
 
 
 @Service("OrderService")
@@ -20,10 +20,9 @@ public class OrderImpl implements OrderService{
 	OrderDao orderDao;
 	
 	@Override
-	public Order query(int orderid) {
+	public ResponseEntity<String> query(int orderid) {
 //		ObjectNode objectNode = JsonNodeFactory.instance.objectNode();
 //		ResponseEntity<ObjectNode> response;
-		
 		
 		Order result = null;
 		Optional<Order> orderResponse = orderDao.findById(orderid);
@@ -32,9 +31,12 @@ public class OrderImpl implements OrderService{
 			order = result;
 		}else {
 			order = orderResponse.get();
+			System.out.println("order is : " + order);
 		}
-		
-		return order;
+		Gson gson = new Gson();
+		String json = gson.toJson(order); 
+		System.out.println("order json is : " + json);
+		return ResponseEntity.ok().body(json);
 	}
 
 	@Override

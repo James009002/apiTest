@@ -1,11 +1,13 @@
 package com.example.restfulAPI.service;
 
 
-import com.example.restfulAPI.model.Order;
+import org.springframework.http.ResponseEntity;
+
+
 
 public interface OrderService {
 	
-	public Order query(int orderid);
+	public ResponseEntity<String> query(int orderid);
 
 	public String modify();
 	
