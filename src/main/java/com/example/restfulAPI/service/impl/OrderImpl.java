@@ -27,16 +27,16 @@ public class OrderImpl implements OrderService{
 		Order result = null;
 		Optional<Order> orderResponse = orderDao.findById(orderid);
 		Order order = new Order();
-		if(orderResponse.isEmpty()) {
+		if(!orderResponse.isPresent()) {
 			order = result;
 		}else {
 			order = orderResponse.get();
 			System.out.println("order is : " + order);
 		}
 		Gson gson = new Gson();
-		String json = gson.toJson(order); 
-		System.out.println("order json is : " + json);
-		return ResponseEntity.ok().body(json);
+		String responseToJSON = gson.toJson(order); 
+		System.out.println("order json is : " + responseToJSON);
+		return ResponseEntity.ok().body(responseToJSON);
 	}
 
 	@Override

@@ -25,8 +25,8 @@ public class Member {
 	@Column(name = "month")
 	private int month; 
 	
-	@Column(name = "day")
-	private int day;
+	@Column(name = "date")
+	private int date;
 	
 	@Column(name = "email")
 	private String email;
@@ -34,5 +34,7 @@ public class Member {
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "phone")
+	private String phone;
 
 }

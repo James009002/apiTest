@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.restfulAPI.model.Advertise;
@@ -13,6 +14,8 @@ import com.example.restfulAPI.model.Products;
 import com.example.restfulAPI.service.TestService;
 
 @RestController
+@RequestMapping("test")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TestController {
 	
 	@Autowired 

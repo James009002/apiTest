@@ -1,6 +1,7 @@
 package com.example.restfulAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +27,7 @@ public class MemberController {
 		Member member = new Member();	//hardcode 
 		member.setName("jessica");
 		member.setMonth(13);
-		member.setDay(11);
+		member.setDate(11);
 		member.setEmail("test@gmail.com");
 		member.setPassword("123123");	//need encryption
 		member.setMemberid(1999);
@@ -43,7 +44,7 @@ public class MemberController {
 		int memberid = 5;
 		Member member = new Member();	//hardcode 
 		member.setName("harry");
-		member.setDay(5);
+		member.setDate(5);
 		member.setMonth(5);
 		member.setPassword("123123");	//need encryption
 		member.setEmail("test@gmail.com");
@@ -52,5 +53,13 @@ public class MemberController {
 		return memberService.modify(member,memberid);
 	}
 	
+	//findAllMember
+	@GetMapping("/findAll")
+	public ResponseEntity<String> queryAllMember() {
+		
+
+		
+		return memberService.queryAll();
+	}
 	
 }

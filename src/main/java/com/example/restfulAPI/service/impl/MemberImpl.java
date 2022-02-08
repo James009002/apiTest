@@ -1,12 +1,16 @@
 package com.example.restfulAPI.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.restfulAPI.model.Member;
 import com.example.restfulAPI.repository.MemberDao;
 import com.example.restfulAPI.service.MemberService;
+import com.google.gson.Gson;
 
 @Service("MemberService")
 public class MemberImpl implements MemberService{
@@ -41,6 +45,15 @@ public class MemberImpl implements MemberService{
 		memberDao.findById(memberid);
 		memberDao.save(member);
 		return "success";
+	}
+	
+	
+	@Override
+	public ResponseEntity<String> queryAll() {
+		List<Member> allMembers = (List<Member>) memberDao.findAll();
+		Gson gson = new Gson();
+		String responseToJSON = gson.toJson(allMembers); 
+		return ResponseEntity.ok().body(responseToJSON);
 	}
 
 }
