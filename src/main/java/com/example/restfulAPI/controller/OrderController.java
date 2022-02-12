@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.example.restfulAPI.service.OrderService;
 
 
@@ -21,40 +22,43 @@ public class OrderController {
 	
 	@GetMapping("/query/{orderid}")
 	public ResponseEntity<String> query(@PathVariable int orderid) {
-
+		 
 		
-			ResponseEntity<String> response;
-			response = orderService.query(orderid); 
-			System.out.println("response is : " + response);
-			return response;
-		
+		ResponseEntity<String> response = orderService.query(orderid);
+		return response;
 	}
 	
 	
 	@RequestMapping("modify/{orderid}")
-	public String modify(
-//			
-			) {
-
-		return orderService.modify();
+	public ResponseEntity<String> modify(
+			@PathVariable int orderid
+		) {
+			ResponseEntity<String> response = orderService.modify(orderid);
+		return response;
 	}
 	
 	
 	@RequestMapping("cancel/{orderid}")
-	public String cancel(
-//			
+	public ResponseEntity<String> cancel(
+			@PathVariable int orderid
 			) {
-
-	
-		
-		return orderService.cancel();
+		ResponseEntity<String> response = null;
+		try {
+			response = orderService.cancel(orderid);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return response;
 	}
 	
 	@RequestMapping("place/{orderid}")
-	public String place() {
-
+	public ResponseEntity<String> place(
+			@PathVariable int orderid
+		) {
+		ResponseEntity<String> response = null;
+		response = orderService.place(orderid);
 		
-		return orderService.place();
+		return response;
 	}
 	
 	

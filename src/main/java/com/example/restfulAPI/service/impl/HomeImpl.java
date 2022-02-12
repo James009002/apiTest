@@ -13,7 +13,7 @@ import com.example.restfulAPI.repository.ProductsDao;
 import com.example.restfulAPI.service.HomeService;
 
 
-@Service("TestService")
+@Service("HomeService")
 public class HomeImpl implements HomeService {
 	
 	@Autowired

@@ -9,9 +9,9 @@ public interface OrderService {
 	
 	public ResponseEntity<String> query(int orderid);
 
-	public String modify();
+	public ResponseEntity<String> modify(int orderid);
 	
-	public String cancel();
+	public ResponseEntity<String> cancel(int orderid);
 
-	public String place();
+	public ResponseEntity<String> place(int orderid);
 }

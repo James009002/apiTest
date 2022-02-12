@@ -26,12 +26,12 @@ public class HomeController {
 	public List<Advertise> getAdvertises() {
 		return testService.getAdvertises();
 	}
+	
 	//getProducts
 	@GetMapping("products")
 	public List<Products> getProducts() {
 		return testService.getProducts();
 	}
-	
 	
 	//getAdvertise
 	@GetMapping("advertise/{advertiseId}")
