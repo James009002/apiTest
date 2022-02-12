@@ -11,19 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.restfulAPI.model.Advertise;
 import com.example.restfulAPI.model.Products;
-import com.example.restfulAPI.service.TestService;
+import com.example.restfulAPI.service.HomeService;
 
 @RestController
-@RequestMapping("test")
+@RequestMapping("home")
 @CrossOrigin(origins = "http://localhost:3000")
-public class TestController {
+public class HomeController {
 	
 	@Autowired 
-	TestService testService; 
+	HomeService testService; 
 	
 	//getAdvertises
 	@GetMapping("advertises")
-	@CrossOrigin(origins = "http://localhost:3000")
 	public List<Advertise> getAdvertises() {
 		return testService.getAdvertises();
 	}

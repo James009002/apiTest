@@ -55,10 +55,7 @@ public class MemberController {
 	
 	//findAllMember
 	@GetMapping("/findAll")
-	public ResponseEntity<String> queryAllMember() {
-		
-
-		
+	public ResponseEntity<String> queryAllMember() {		
 		return memberService.queryAll();
 	}
 	

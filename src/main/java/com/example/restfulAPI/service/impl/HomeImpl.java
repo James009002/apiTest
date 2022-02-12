@@ -10,11 +10,11 @@ import com.example.restfulAPI.model.Advertise;
 import com.example.restfulAPI.model.Products;
 import com.example.restfulAPI.repository.AdvertisesDao;
 import com.example.restfulAPI.repository.ProductsDao;
-import com.example.restfulAPI.service.TestService;
+import com.example.restfulAPI.service.HomeService;
 
 
 @Service("TestService")
-public class TestImpl implements TestService {
+public class HomeImpl implements HomeService {
 	
 	@Autowired
 	private AdvertisesDao advertisesDao;

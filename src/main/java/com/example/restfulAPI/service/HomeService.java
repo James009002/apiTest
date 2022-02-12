@@ -8,7 +8,7 @@ import com.example.restfulAPI.model.Products;
 
 
 //@Service
-public interface TestService {
+public interface HomeService {
 	
 	public List<Advertise> getAdvertises();
 
