@@ -61,5 +61,14 @@ public class OrderController {
 		return response;
 	}
 	
+//	@RequestMapping("place/{orderid}")
+//	public ResponseEntity<String> place(
+//			@PathVariable int orderid
+//		) {
+//		ResponseEntity<String> response = null;
+//		response = orderService.place(orderid);
+//		
+//		return response;
+//	}
 	
 }
