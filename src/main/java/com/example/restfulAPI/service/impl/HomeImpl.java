@@ -51,6 +51,7 @@ public class HomeImpl implements HomeService {
 
 	public Products getProduct(int productId) {
 		Optional<Products> optionalProducts = productsDao.findById(productId);	//hardcode need to fix
+		
 		if(optionalProducts == null) {
 			//need to return something if it return null
 		}
